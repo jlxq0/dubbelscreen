@@ -48,6 +48,7 @@ end
 
 gem 'rails_admin'
 gem 'barometer'
+gem 'barometer-yahoo'
 gem 'withings-api'
 gem 'simplificator-withings'
 gem 'ruby-hmac'

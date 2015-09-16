@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150915155654) do
+ActiveRecord::Schema.define(version: 20150916175724) do
+
+  create_table "activitydata", force: :cascade do |t|
+    t.integer  "user_id"
+    t.date     "withings_taken_at"
+    t.integer  "withings_steps"
+    t.float    "withings_distance"
+    t.float    "withings_calories"
+    t.float    "withings_totalcalories"
+    t.float    "withings_elevation"
+    t.integer  "withings_soft"
+    t.integer  "withings_moderate"
+    t.integer  "withings_intense"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "activitydata", ["user_id"], name: "index_activitydata_on_user_id"
 
   create_table "locations", force: :cascade do |t|
     t.string   "name"
@@ -34,9 +51,14 @@ ActiveRecord::Schema.define(version: 20150915155654) do
   end
 
   create_table "weatherdata", force: :cascade do |t|
-    t.decimal  "temperature"
-    t.datetime "time"
     t.integer  "location_id"
+    t.date     "date"
+    t.integer  "high"
+    t.integer  "low"
+    t.datetime "sunrise"
+    t.datetime "sunset"
+    t.string   "icon"
+    t.string   "condition"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

@@ -51,6 +51,8 @@ GEM
       nori
       tzinfo (>= 0.3.14)
       virtus (>= 1.0.0)
+    barometer-yahoo (0.0.1)
+      barometer (~> 0.9.7)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
@@ -209,6 +211,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   barometer
+  barometer-yahoo
   byebug
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
