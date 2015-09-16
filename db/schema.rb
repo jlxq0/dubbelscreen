@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916175724) do
+ActiveRecord::Schema.define(version: 20150916204137) do
 
   create_table "activitydata", force: :cascade do |t|
     t.integer  "user_id"
@@ -34,6 +34,22 @@ ActiveRecord::Schema.define(version: 20150916175724) do
     t.string   "name"
     t.decimal  "lat"
     t.decimal  "long"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "news", force: :cascade do |t|
+    t.integer  "newschannel_id"
+    t.string   "title"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "news", ["newschannel_id"], name: "index_news_on_newschannel_id"
+
+  create_table "newschannels", force: :cascade do |t|
+    t.string   "name"
+    t.string   "feedurl"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

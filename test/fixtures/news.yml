@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  newschannel_id: 
+  title: MyString
+  content: MyText
+
+two:
+  newschannel_id: 
+  title: MyString
+  content: MyText
