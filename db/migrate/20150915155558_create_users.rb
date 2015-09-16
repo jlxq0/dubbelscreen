@@ -5,6 +5,9 @@ class CreateUsers < ActiveRecord::Migration
       t.string :fullname
       t.date :birthday
       t.integer :height
+      t.string :withings_id
+      t.string :withings_key
+      t.string :withings_secret
 
       t.timestamps null: false
     end

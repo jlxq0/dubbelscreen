@@ -26,26 +26,38 @@ ActiveRecord::Schema.define(version: 20150915155654) do
     t.string   "fullname"
     t.date     "birthday"
     t.integer  "height"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "withings_id"
+    t.string   "withings_key"
+    t.string   "withings_secret"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "weatherdata", force: :cascade do |t|
     t.decimal  "temperature"
     t.datetime "time"
-    t.integer  "Location_id"
+    t.integer  "location_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  add_index "weatherdata", ["Location_id"], name: "index_weatherdata_on_Location_id"
+  add_index "weatherdata", ["location_id"], name: "index_weatherdata_on_location_id"
 
   create_table "weightdata", force: :cascade do |t|
-    t.decimal  "weight"
-    t.datetime "time"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "withings_taken_at"
+    t.integer  "withings_attribution"
+    t.integer  "withings_category"
+    t.float    "withings_weight"
+    t.integer  "withings_size"
+    t.float    "withings_fat"
+    t.float    "withings_ratio"
+    t.float    "withings_fat_free"
+    t.float    "withings_diastolic_blood_pressure"
+    t.float    "withings_systolic_blood_pressure"
+    t.integer  "withings_heart_pulse"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
   add_index "weightdata", ["user_id"], name: "index_weightdata_on_user_id"

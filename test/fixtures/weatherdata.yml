@@ -3,9 +3,9 @@
 one:
   temperature: 9.99
   time: 2015-09-15 17:53:53
-  Location_id: 
+  location_id: 
 
 two:
   temperature: 9.99
   time: 2015-09-15 17:53:53
-  Location_id: 
+  location_id: 

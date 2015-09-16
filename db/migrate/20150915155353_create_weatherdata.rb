@@ -3,7 +3,7 @@ class CreateWeatherdata < ActiveRecord::Migration
     create_table :weatherdata do |t|
       t.decimal :temperature
       t.datetime :time
-      t.references :Location, index: true, foreign_key: true
+      t.references :location, index: true, foreign_key: true
 
       t.timestamps null: false
     end
