@@ -1,7 +1,7 @@
 class CreateActivitydata < ActiveRecord::Migration
   def change
     create_table :activitydata do |t|
-      t.references :user, index: true, foreign_key: true
+      t.references :person, index: true, foreign_key: true
       t.date       :withings_taken_at
       t.integer    :withings_steps
       t.float      :withings_distance

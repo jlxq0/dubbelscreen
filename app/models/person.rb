@@ -1,5 +1,5 @@
-class User < ActiveRecord::Base
-  has_many :Weightdatum
+class Person < ActiveRecord::Base
+  has_many :weightdata
   validates :nickname, :fullname, presence: true
 
   # For rails admin to play nice
@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   end
 
   def update_weight measurement
-    weight = Weightdatum.find_or_initialize_by(user_id: self.id, withings_taken_at: measurement.taken_at)
+    weight = Weightdatum.find_or_initialize_by(person_id: self.id, withings_taken_at: measurement.taken_at)
     weight.update(
       withings_taken_at:                 measurement.taken_at,
       withings_attribution:              measurement.attribution,
@@ -44,12 +44,12 @@ class User < ActiveRecord::Base
       withings_diastolic_blood_pressure: measurement.diastolic_blood_pressure,
       withings_systolic_blood_pressure:  measurement.systolic_blood_pressure,
       withings_heart_pulse:              measurement.heart_pulse,
-      user_id:                           self.id
+      person_id:                         self.id
     )
   end
 
   def update_activity day
-    activity = Activitydatum.find_or_initialize_by(user_id: self.id, withings_taken_at: day["date"].to_date)
+    activity = Activitydatum.find_or_initialize_by(person_id: self.id, withings_taken_at: day["date"].to_date)
     activity.update(
       withings_taken_at:          day["date"],
       withings_steps:             day["steps"],
@@ -60,7 +60,7 @@ class User < ActiveRecord::Base
       withings_soft:              day["soft"],
       withings_moderate:          day["moderate"],
       withings_intense:           day["intense"],
-      user_id:                    self.id
+      person_id:                  self.id
     )
   end
 end

@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20150917132737) do
 
   create_table "activitydata", force: :cascade do |t|
-    t.integer  "user_id"
+    t.integer  "person_id"
     t.date     "withings_taken_at"
     t.integer  "withings_steps"
     t.float    "withings_distance"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20150917132737) do
     t.datetime "updated_at",             null: false
   end
 
-  add_index "activitydata", ["user_id"], name: "index_activitydata_on_user_id"
+  add_index "activitydata", ["person_id"], name: "index_activitydata_on_person_id"
 
   create_table "locations", force: :cascade do |t|
     t.string   "name"
@@ -54,6 +54,18 @@ ActiveRecord::Schema.define(version: 20150917132737) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "people", force: :cascade do |t|
+    t.string   "nickname"
+    t.string   "fullname"
+    t.date     "birthday"
+    t.integer  "height"
+    t.string   "withings_id"
+    t.string   "withings_key"
+    t.string   "withings_secret"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "plexmedia", force: :cascade do |t|
     t.integer  "plexserver_id"
     t.string   "mediatype"
@@ -76,18 +88,6 @@ ActiveRecord::Schema.define(version: 20150917132737) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "nickname"
-    t.string   "fullname"
-    t.date     "birthday"
-    t.integer  "height"
-    t.string   "withings_id"
-    t.string   "withings_key"
-    t.string   "withings_secret"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
   create_table "weatherdata", force: :cascade do |t|
     t.integer  "location_id"
     t.date     "date"
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 20150917132737) do
   add_index "weatherdata", ["location_id"], name: "index_weatherdata_on_location_id"
 
   create_table "weightdata", force: :cascade do |t|
-    t.integer  "user_id"
+    t.integer  "person_id"
     t.datetime "withings_taken_at"
     t.integer  "withings_attribution"
     t.integer  "withings_category"
@@ -120,6 +120,6 @@ ActiveRecord::Schema.define(version: 20150917132737) do
     t.datetime "updated_at",                        null: false
   end
 
-  add_index "weightdata", ["user_id"], name: "index_weightdata_on_user_id"
+  add_index "weightdata", ["person_id"], name: "index_weightdata_on_person_id"
 
 end

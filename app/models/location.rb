@@ -1,5 +1,5 @@
 class Location < ActiveRecord::Base
-  has_many :Weatherdatum
+  has_many :weatherdata
 
   def get_weather
     coordinates = "#{lat.to_f},#{long.to_f}"
