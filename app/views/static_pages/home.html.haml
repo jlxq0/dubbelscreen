@@ -1,0 +1,13 @@
+%p
+  You weigh #{@weight} kg
+%p
+  Weather: #{@weather['condition']}
+  %i{:class => "wi wi-yahoo-#{@weather['icon']}"}
+%p
+  - @news.each do |item|
+    = item.title
+    %br
+%p
+  - @movies.each do |item|
+    = item.title
+    %br
