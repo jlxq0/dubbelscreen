@@ -1,17 +1,15 @@
 Rails.application.routes.draw do
-  get 'static_pages/home'
-
-  get 'static_pages/help'
-
-  get 'static_pages/dash1'
-
-  get 'static_pages/dash2'
-
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   root 'static_pages#home'
-
-  get 'static_pages/help'
-
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  resources :users, :path => '', param: :name do
+    resources :locations
+    resources :newschannels
+    resources :people
+    resources :plexserver
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

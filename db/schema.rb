@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150917132737) do
+ActiveRecord::Schema.define(version: 20150917151430) do
 
   create_table "activitydata", force: :cascade do |t|
     t.integer  "person_id"
@@ -31,12 +31,15 @@ ActiveRecord::Schema.define(version: 20150917132737) do
   add_index "activitydata", ["person_id"], name: "index_activitydata_on_person_id"
 
   create_table "locations", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "name"
     t.decimal  "lat"
     t.decimal  "long"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "locations", ["user_id"], name: "index_locations_on_user_id"
 
   create_table "news", force: :cascade do |t|
     t.integer  "newschannel_id"
@@ -48,13 +51,17 @@ ActiveRecord::Schema.define(version: 20150917132737) do
   add_index "news", ["newschannel_id"], name: "index_news_on_newschannel_id"
 
   create_table "newschannels", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "name"
     t.string   "feedurl"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_index "newschannels", ["user_id"], name: "index_newschannels_on_user_id"
+
   create_table "people", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "nickname"
     t.string   "fullname"
     t.date     "birthday"
@@ -65,6 +72,8 @@ ActiveRecord::Schema.define(version: 20150917132737) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
+
+  add_index "people", ["user_id"], name: "index_people_on_user_id"
 
   create_table "plexmedia", force: :cascade do |t|
     t.integer  "plexserver_id"
@@ -78,6 +87,7 @@ ActiveRecord::Schema.define(version: 20150917132737) do
   add_index "plexmedia", ["plexserver_id"], name: "index_plexmedia_on_plexserver_id"
 
   create_table "plexservers", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "title"
     t.string   "url"
     t.string   "port"
@@ -87,6 +97,31 @@ ActiveRecord::Schema.define(version: 20150917132737) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "plexservers", ["user_id"], name: "index_plexservers_on_user_id"
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email"
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.boolean  "member"
+    t.boolean  "admin"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "weatherdata", force: :cascade do |t|
     t.integer  "location_id"

@@ -1,4 +1,5 @@
 class Newschannel < ActiveRecord::Base
+  belongs_to :user
   has_many :news
 
   def get_news

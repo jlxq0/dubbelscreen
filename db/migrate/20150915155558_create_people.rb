@@ -1,6 +1,7 @@
 class CreatePeople < ActiveRecord::Migration
   def change
     create_table :people do |t|
+      t.references :user, index: true, foreign_key: true
       t.string :nickname
       t.string :fullname
       t.date :birthday

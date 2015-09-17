@@ -1,6 +1,7 @@
 class CreatePlexservers < ActiveRecord::Migration
   def change
     create_table :plexservers do |t|
+      t.references :user, index: true, foreign_key: true
       t.string :title
       t.string :url
       t.string :port

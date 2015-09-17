@@ -54,3 +54,10 @@ gem 'simplificator-withings'
 gem 'ruby-hmac'
 gem 'bootstrap-sass'
 gem 'plex-ruby'
+gem 'angularjs-rails'
+
+# OAuth Stuff
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-identity'

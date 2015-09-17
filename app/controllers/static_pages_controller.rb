@@ -5,13 +5,4 @@ class StaticPagesController < ApplicationController
     @news = News.last(5).reverse
     @movies = Plexmedium.last(5).reverse
   end
-
-  def help
-  end
-
-  def dash1
-  end
-
-  def dash2
-  end
 end

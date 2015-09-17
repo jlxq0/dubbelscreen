@@ -1,4 +1,5 @@
 class Person < ActiveRecord::Base
+  belongs_to :user
   has_many :weightdata
   validates :nickname, :fullname, presence: true
 

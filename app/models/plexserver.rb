@@ -1,4 +1,5 @@
 class Plexserver < ActiveRecord::Base
+  belongs_to :user
   has_many :plexmedia
   validates :title, :url, :port, :token, presence: true
 
