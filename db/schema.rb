@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20150917151430) do
 
   create_table "people", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "nickname"
+    t.string   "name"
     t.string   "fullname"
     t.date     "birthday"
     t.integer  "height"
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 20150917151430) do
 
   create_table "plexservers", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "title"
+    t.string   "name"
     t.string   "url"
     t.string   "port"
     t.string   "token"

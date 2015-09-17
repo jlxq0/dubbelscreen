@@ -1,5 +1,12 @@
 RailsAdmin.config do |config|
 
+  config.authorize_with do |controller|
+    unless current_user.try(:admin?)
+      flash[:error] = "You are not an admin"
+      redirect_to '/'
+    end
+  end
+
   ### Popular gems integration
 
   ## == Devise ==

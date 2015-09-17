@@ -1,12 +1,7 @@
 class Person < ActiveRecord::Base
   belongs_to :user
   has_many :weightdata
-  validates :nickname, :fullname, presence: true
-
-  # For rails admin to play nice
-  def name
-    nickname
-  end
+  validates :name, :fullname, presence: true
 
   def get_weight
     measurement = withings_connection.measurement_groups.first
