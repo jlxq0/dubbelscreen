@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  plexserver_id: 
+  type: 
+  key: MyString
+  title: MyString
+
+two:
+  plexserver_id: 
+  type: 
+  key: MyString
+  title: MyString

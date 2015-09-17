@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916204137) do
+ActiveRecord::Schema.define(version: 20150917132737) do
 
   create_table "activitydata", force: :cascade do |t|
     t.integer  "user_id"
@@ -50,6 +50,28 @@ ActiveRecord::Schema.define(version: 20150916204137) do
   create_table "newschannels", force: :cascade do |t|
     t.string   "name"
     t.string   "feedurl"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "plexmedia", force: :cascade do |t|
+    t.integer  "plexserver_id"
+    t.string   "mediatype"
+    t.string   "key"
+    t.string   "title"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "plexmedia", ["plexserver_id"], name: "index_plexmedia_on_plexserver_id"
+
+  create_table "plexservers", force: :cascade do |t|
+    t.string   "title"
+    t.string   "url"
+    t.string   "port"
+    t.string   "token"
+    t.string   "shows_lib"
+    t.string   "movies_lib"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

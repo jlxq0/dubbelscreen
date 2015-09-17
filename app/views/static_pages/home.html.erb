@@ -1,3 +1,15 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
-<i class="wi wi-yahoo-11"></i>
+<p>You weigh <%= @weight %> kg</p>
+<p>
+  Weather: <%= @weather['condition'] %>
+  <i class="wi wi-yahoo-<%= @weather['icon'] %>"></i>
+</p>
+<p>
+  <% @news.each do |item| %>
+  <%= item.title %><br />
+  <% end %>
+</p>
+<p>
+  <% @movies.each do |item| %>
+  <%= item.title %><br />
+  <% end %>
+</p>

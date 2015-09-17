@@ -3,7 +3,7 @@ class Newschannel < ActiveRecord::Base
 
   def get_news
     rss = RSS::Parser.parse(feedurl, false)
-    rss.items.each { |item| update_newsitem item }
+    rss.items[0..4].reverse.each { |item| update_newsitem item }
   end
 
   protected

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  url: MyString
+  port: MyString
+  token: MyString
+  shows_lib: MyString
+  movies_lib: MyString
+
+two:
+  title: MyString
+  url: MyString
+  port: MyString
+  token: MyString
+  shows_lib: MyString
+  movies_lib: MyString
