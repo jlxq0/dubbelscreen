@@ -1,8 +1,5 @@
 class StaticPagesController < ApplicationController
   def home
-    @weight = '%.1f' % Weightdatum.first.withings_weight
-    @weather = Weatherdatum.first
-    @news = News.last(5).reverse
-    @movies = Plexmedium.last(5).reverse
+    redirect_to '/'+current_user.name if user_signed_in?
   end
 end

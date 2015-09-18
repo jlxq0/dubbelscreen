@@ -58,6 +58,7 @@ gem 'bootstrap-generators'
 gem 'plex-ruby'
 gem 'angularjs-rails'
 gem 'haml'
+gem 'font-awesome-sass'
 
 # OAuth Stuff
 gem 'devise'

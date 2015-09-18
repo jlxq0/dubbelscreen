@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_many :locations
   has_many :newschannels
   has_many :people
-  has_many :plexserver
+  has_many :plexservers
   devise :database_authenticatable, :rememberable, :trackable, :omniauthable
 
   def self.from_omniauth(auth)

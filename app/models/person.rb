@@ -1,6 +1,7 @@
 class Person < ActiveRecord::Base
   belongs_to :user
   has_many :weightdata
+  has_many :activitydata
   validates :name, :fullname, presence: true
 
   def get_weight

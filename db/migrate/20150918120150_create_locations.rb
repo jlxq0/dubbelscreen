@@ -5,6 +5,7 @@ class CreateLocations < ActiveRecord::Migration
       t.string :name
       t.decimal :lat
       t.decimal :long
+      t.integer :woeid
 
       t.timestamps null: false
     end

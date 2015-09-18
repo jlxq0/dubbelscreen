@@ -1,0 +1,19 @@
+%p#notice= notice
+%p
+  %strong User:
+  = @location.user
+%p
+  %strong Name:
+  = @location.name
+%p
+  %strong Lat:
+  = @location.lat
+%p
+  %strong Long:
+  = @location.long
+%p
+  %strong Woeid:
+  = @location.woeid
+= link_to 'Edit', edit_location_path(@location)
+|
+= link_to 'Back', locations_path
