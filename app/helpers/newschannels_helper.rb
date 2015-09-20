@@ -1,0 +1,2 @@
+module NewschannelsHelper
+end
