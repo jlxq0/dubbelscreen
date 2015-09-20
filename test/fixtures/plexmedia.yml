@@ -1,13 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  plexserver_id: 
-  type: 
+  plexserver_id: 1
+  mediatype: MyString
   key: MyString
   title: MyString
 
 two:
-  plexserver_id: 
-  type: 
+  plexserver_id: 1
+  mediatype: MyString
   key: MyString
   title: MyString
+ 

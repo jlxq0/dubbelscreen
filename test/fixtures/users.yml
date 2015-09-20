@@ -4,8 +4,36 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+one:
+  email: jl1@xq0.net
+  sign_in_count: 1
+  current_sign_in_at: "2015-09-20 18:01:36"
+  last_sign_in_at: "2015-09-20 18:01:36"
+  current_sign_in_ip: "::1"
+  last_sign_in_ip: "::1"
+  created_at: "2015-09-20 18:01:36"
+  updated_at: "2015-09-20 18:02:16"
+  provider: "twitter"
+  uid: 1
+  name: 1
+  member: nil
+  admin: false
+
+two:
+  email: jl@xq0.net
+  encrypted_password: "$2a$10$GyqlteNdNcnIiyHUEyBYKOXNky8.t6KbtoJO14059bw..."
+  reset_password_token: nil
+  reset_password_sent_at: nil
+  remember_created_at: nil
+  sign_in_count: 1
+  current_sign_in_at: "2015-09-20 18:01:36"
+  last_sign_in_at: "2015-09-20 18:01:36"
+  current_sign_in_ip: "::1"
+  last_sign_in_ip: "::1"
+  created_at: "2015-09-20 18:01:36"
+  updated_at: "2015-09-20 18:02:16"
+  provider: "twitter"
+  uid: 2
+  name: 2
+  member: nil
+  admin: true
