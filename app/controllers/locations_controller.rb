@@ -4,31 +4,36 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
   def index
+    @user = current_user
     @locations = Location.where user_id: current_user.id
   end
 
   # GET /locations/1
   # GET /locations/1.json
   def show
+    @user = current_user
   end
 
   # GET /locations/new
   def new
+    @user = current_user
     @location = Location.new
   end
 
   # GET /locations/1/edit
   def edit
+    @user = current_user
   end
 
   # POST /locations
   # POST /locations.json
   def create
     @location = Location.new(location_params)
+    @location.user_id = current_user.id
 
     respond_to do |format|
       if @location.save
-        format.html { redirect_to @location, notice: 'Location was successfully created.' }
+        format.html { redirect_to [current_user, @location], notice: 'Location was successfully created.' }
         format.json { render :show, status: :created, location: @location }
       else
         format.html { render :new }
@@ -40,9 +45,11 @@ class LocationsController < ApplicationController
   # PATCH/PUT /locations/1
   # PATCH/PUT /locations/1.json
   def update
+    @location.user_id = current_user.id
+
     respond_to do |format|
       if @location.update(location_params)
-        format.html { redirect_to @location, notice: 'Location was successfully updated.' }
+        format.html { redirect_to [current_user, @location], notice: 'Location was successfully updated.' }
         format.json { render :show, status: :ok, location: @location }
       else
         format.html { render :edit }
@@ -56,7 +63,7 @@ class LocationsController < ApplicationController
   def destroy
     @location.destroy
     respond_to do |format|
-      format.html { redirect_to locations_url, notice: 'Location was successfully destroyed.' }
+      format.html { redirect_to user_locations_url(current_user), notice: 'Location was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

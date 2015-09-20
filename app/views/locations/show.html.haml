@@ -1,19 +1,15 @@
-%p#notice= notice
-%p
-  %strong User:
-  = @location.user
-%p
-  %strong Name:
-  = @location.name
-%p
-  %strong Lat:
-  = @location.lat
-%p
-  %strong Long:
-  = @location.long
-%p
-  %strong Woeid:
-  = @location.woeid
-= link_to 'Edit', edit_location_path(@location)
-|
-= link_to 'Back', locations_path
+.page-header
+  = ilink_to 'arrow-circle-left', 'Back', user_locations_path(@user), class: 'btn btn-default'
+  = ilink_to 'edit', 'Edit', edit_user_location_path(@user, @location), class: 'btn btn-primary'
+
+  %h1 Show Location
+
+%dl.dl-horizontal
+  %dt Name
+  %dd= @location.name
+  %dt Latitude
+  %dd= @location.lat
+  %dt Longitude
+  %dd= @location.long
+  %dt Yahoo woeid
+  %dd= @location.woeid

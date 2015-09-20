@@ -1,2 +1,30 @@
-- @people.each do |p|
-  = p.name
+.page-header
+  = link_to new_user_person_path(@user), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Person
+  %h1 Listing People
+
+.table-responsive
+  %table.table.table-striped.table-hover
+    %thead
+      %tr
+        %th Name
+        %th Full Name
+        %th Birthday
+        %th Withings ID
+        %th Withings Key
+        %th Withings Secret
+        %th
+
+    %tbody
+      - @people.each do |person|
+        %tr
+          %td= link_to person.name, [current_user, person]
+          %td= person.fullname
+          %td= person.birthday
+          %td= person.withings_id
+          %td= truncate(person.withings_key)
+          %td= truncate(person.withings_secret)
+          %td
+            = ilink_to 'edit', 'Edit', edit_user_person_path(@user, person) , :class => 'btn btn-primary btn-xs'
+            = ilink_to 'trash', 'Destroy', user_person_path(@user, person), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-default btn-xs'

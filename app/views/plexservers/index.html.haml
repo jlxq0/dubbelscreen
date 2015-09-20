@@ -1,2 +1,30 @@
-- @plexservers.each do |p|
-  = p.name
+.page-header
+  = link_to new_user_plexserver_path(@user), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Plexserver
+  %h1 Listing Plexservers
+
+.table-responsive
+  %table.table.table-striped.table-hover
+    %thead
+      %tr
+        %th Name
+        %th URL
+        %th Port
+        %th Token
+        %th Movies Library
+        %th Shows Library
+        %th
+
+    %tbody
+      - @plexservers.each do |plexserver|
+        %tr
+          %td= link_to plexserver.name, [current_user, plexserver]
+          %td= plexserver.url
+          %td= plexserver.port
+          %td= truncate(plexserver.token)
+          %td= plexserver.movies_library
+          %td= plexserver.shows_library
+          %td
+            = ilink_to 'edit', 'Edit', edit_user_plexserver_path(@user, plexserver) , :class => 'btn btn-primary btn-xs'
+            = ilink_to 'trash', 'Destroy', user_plexserver_path(@user, plexserver), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-default btn-xs'

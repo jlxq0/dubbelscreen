@@ -5,7 +5,7 @@ class Plexserver < ActiveRecord::Base
 
   def get_media
     Plex.configure do |config|
-      config.auth_token = "RRSbrshxWKtjHmsBdCVm"
+      config.auth_token = token
     end
     server = Plex::Server.new(url, port)
     sections = server.library.sections

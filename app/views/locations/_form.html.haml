@@ -1,31 +1,42 @@
-= form_for(@location) do |f|
-  - if @location.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@location.errors.count, "error")
-        prohibited this location from being saved:
+= form_for [@user, @location], html: { class: "form-horizontal", role: "form" } do |f|
+  -if @location.errors.any?
+    .alert.alert-danger.alert-dismissable{role: "alert"}
+      %button.close{type: "button", data: {dismiss: "alert"} }
+        %span{aria: {hidden: "true"} } &times;
+        %span.sr-only Close
+      %h4= "#{pluralize(@location.errors.count, "error")} prohibited this Location from being saved:"
+
       %ul
-        - @location.errors.full_messages.each do |message|
-          %li= message
-  .field
-    = f.label :user_id
-    %br/
-    = f.text_field :user_id
-  .field
-    = f.label :name
-    %br/
-    = f.text_field :name
-  .field
-    = f.label :lat
-    %br/
-    = f.text_field :lat
-  .field
-    = f.label :long
-    %br/
-    = f.text_field :long
-  .field
-    = f.label :woeid
-    %br/
-    = f.number_field :woeid
-  .actions
-    = f.submit
+        - @location.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :name, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :name, class: 'form-control'
+
+  .form-group
+    = f.label :lat, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :lat, class: 'form-control'
+
+  .form-group
+    = f.label :long, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :long, class: 'form-control'
+
+  .form-group
+    = f.label :woeid, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :woeid, class: 'form-control'
+
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      %button.btn.btn-primary{:type => "submit"}
+        - if f.object.new_record?
+          = icon('save')
+          = "Cretae #{f.object.class.model_name.human}"
+        - else
+          = icon('refresh')
+          = "Update #{f.object.class.model_name.human}"
+      = ilink_to 'arrow-circle-left', 'Cancel & Back', user_locations_path(@user), :class => 'btn btn-default'

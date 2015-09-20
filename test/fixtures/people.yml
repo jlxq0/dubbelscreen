@@ -1,13 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  nickname: MyString
+  user_id: 
+  name: MyString
   fullname: MyString
-  birthday: 2015-09-15
-  height: 1
+  birthday: 2015-09-18
+  withings_id: MyString
+  withings_key: MyString
+  withings_secret: MyString
 
 two:
-  nickname: MyString
+  user_id: 
+  name: MyString
   fullname: MyString
-  birthday: 2015-09-15
-  height: 1
+  birthday: 2015-09-18
+  withings_id: MyString
+  withings_key: MyString
+  withings_secret: MyString

@@ -6,7 +6,7 @@
     %meta{content: "width=device-width, initial-scale=1", name: "viewport"}
     %meta{content: "", name: "description"}
     %meta{content: "", name: "author"}
-    %title Starter Template for Bootstrap
+    %title InfDisp
 
     / HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
     /[if lt IE 9]
@@ -27,13 +27,18 @@
           = link_to "InfDisp", "/", class: "navbar-brand"
         #navbar.collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li.active
-              %a{href: "/"} Home
-            %li
-              %a{href: "#about"} About
-            %li
-              %a{href: "/admin"} Admin
             - if user_signed_in?
+              %li{class: ("active" if controller? "people")}
+                = link_to 'People', user_people_path(current_user)
+              %li{class: ("active" if controller? "locations")}
+                = link_to 'Locations', user_locations_path(current_user)
+              %li{class: ("active" if controller? "newschannels")}
+                = link_to 'Newschannels', user_newschannels_path(current_user)
+              %li{class: ("active" if controller? "plexservers")}
+                = link_to 'Plexservers', user_plexservers_path(current_user)
+              - if current_user.admin?
+                %li
+                  %a{href: "/admin"} Admin
               %li
                 = link_to('Logout', destroy_user_session_path, :method => :delete)
             - else
