@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150918145106) do
+ActiveRecord::Schema.define(version: 20150920173305) do
 
   create_table "activitydata", force: :cascade do |t|
     t.integer  "person_id"
@@ -90,12 +90,12 @@ ActiveRecord::Schema.define(version: 20150918145106) do
     t.integer  "user_id"
     t.string   "name"
     t.string   "url"
-    t.string   "port"
+    t.integer  "port"
     t.string   "token"
-    t.string   "shows_lib"
-    t.string   "movies_lib"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "shows_library"
+    t.string   "movies_library"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   add_index "plexservers", ["user_id"], name: "index_plexservers_on_user_id"

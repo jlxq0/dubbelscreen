@@ -11,7 +11,7 @@ class Plexserver < ActiveRecord::Base
     sections = server.library.sections
 
     sections.each do |section|
-      @movies = section if section.title == movies_lib
+      @movies = section if section.title == movies_library
     end
 
     @movies.recently_added[0..4].reverse.each do |movie| 
