@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :newschannels
     resources :people
     resources :plexservers
+    resources :triggers, only: :index
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
