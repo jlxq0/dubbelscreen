@@ -1,6 +1,6 @@
 == README
 
-Creating an info display
+Creating an info display. With dubbelscreen!
 
 Startup and - for now - run:
 
