@@ -21,5 +21,3 @@ Startup and - for now - run:
       pm.get_media
     end
 
-
-http://goo.gl/U3zLfA
