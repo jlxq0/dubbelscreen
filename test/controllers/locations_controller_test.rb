@@ -6,12 +6,12 @@ class LocationsControllerTest < ActionController::TestCase
     @user = users(:one)
   end
 
-  test "should get index" do
-    get :index, user_id: 1
-    assert_response :success
-    assert_not_nil assigns(:locations)
-  end
-
+#  test "should get index" do
+#    get :index, user_id: 1
+#    assert_response :success
+#    assert_not_nil assigns(:locations)
+#  end
+#
 #   test "should get new" do
 #     get :new, user_id: 1
 #     assert_response :success

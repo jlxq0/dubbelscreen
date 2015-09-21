@@ -1,4 +1,6 @@
-== README
+# README
+
+[![Build Status](https://semaphoreci.com/api/v1/projects/2647959e-939e-4192-abb5-fbeaac0190a2/546604/badge.svg)](https://semaphoreci.com/dubbelscreen/dubbelscreen)
 
 Creating an info display. With dubbelscreen!
 
