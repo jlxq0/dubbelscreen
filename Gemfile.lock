@@ -70,6 +70,8 @@ GEM
     builder (3.2.2)
     byebug (6.0.2)
     choc_mool (0.0.1)
+    codeclimate-test-reporter (0.4.8)
+      simplecov (>= 0.7.1, < 1.0.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     coffee-rails (4.1.0)
@@ -90,6 +92,7 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    docile (1.1.5)
     equalizer (0.0.11)
     erb2haml (0.1.5)
       html2haml
@@ -228,6 +231,11 @@ GEM
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     sexp_processor (4.6.0)
+    simplecov (0.10.0)
+      docile (~> 1.1.0)
+      json (~> 1.8)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
     simplificator-withings (0.7.0)
       httparty (~> 0.13)
     spring (1.4.0)
@@ -279,6 +287,7 @@ DEPENDENCIES
   bootstrap-generators
   bootstrap-sass
   byebug
+  codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
   devise
   erb2haml
