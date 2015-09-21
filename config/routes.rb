@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :newschannels
     resources :people
     resources :plexservers
-    resources :triggers, only: :index
+    match 'trigger', to: 'triggers#index', via: [:get, :post]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
