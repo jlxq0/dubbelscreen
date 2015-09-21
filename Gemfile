@@ -68,6 +68,7 @@ gem 'plex-ruby'
 gem 'angularjs-rails'
 gem 'haml'
 gem 'font-awesome-sass'
+gem 'newrelic_rpm'
 
 # OAuth Stuff
 gem 'devise'
