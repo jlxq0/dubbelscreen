@@ -1,0 +1,11 @@
+.page-header
+  = ilink_to 'arrow-circle-left', 'Back', user_dashboards_path(@user), class: 'btn btn-default'
+  = ilink_to 'edit', 'Edit', edit_user_dashboard_path(@user, @dashboard), class: 'btn btn-primary'
+
+  %h1 Show dashboard
+
+%dl.dl-horizontal
+  %dt Name
+  %dd= @dashboard.name
+  %dt Content
+  %dd= @dashboard.content

@@ -1,0 +1,22 @@
+.page-header
+  = link_to new_user_dashboard_path(@user), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New dashboard
+  %h1 Listing dashboards
+
+.table-responsive
+  %table.table.table-striped.table-hover
+    %thead
+      %tr
+        %th Name
+        %th Content
+        %th
+
+    %tbody
+      - @dashboards.each do |dashboard|
+        %tr
+          %td= link_to dashboard.name, [current_user, dashboard]
+          %td= truncate(dashboard.content)
+          %td
+            = ilink_to 'edit', 'Edit', edit_user_dashboard_path(@user, dashboard) , :class => 'btn btn-primary btn-xs'
+            = ilink_to 'trash', 'Destroy', user_dashboard_path(@user, dashboard), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-default btn-xs'
