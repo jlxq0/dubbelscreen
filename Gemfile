@@ -75,3 +75,5 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-identity'
+
+gem 'pusher_rails'
