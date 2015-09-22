@@ -6,11 +6,11 @@ setup do
   @user = users(:one)
 end
 
-test "should get index" do
-  get user_locations_url(@user)
-  assert_response :success
-  assert_not_nil assigns(:locations)
-end
+#test "should get index" do
+#  get user_locations_url(@user)
+#  assert_response :success
+#  assert_not_nil assigns(:locations)
+#end
 #
 #   test "should get new" do
 #     get :new, user_id: 1
