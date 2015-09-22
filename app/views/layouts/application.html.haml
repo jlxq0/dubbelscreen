@@ -36,6 +36,8 @@
                 = link_to 'Newschannels', user_newschannels_path(current_user)
               %li{class: ("active" if controller? "plexservers")}
                 = link_to 'Plexservers', user_plexservers_path(current_user)
+              %li{class: ("active" if controller? "dashboards")}
+                = link_to 'Dashboards', user_dashboards_path(current_user)
               - if current_user.admin?
                 %li
                   %a{href: "/admin"} Admin
