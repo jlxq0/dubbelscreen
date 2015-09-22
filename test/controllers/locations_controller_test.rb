@@ -1,16 +1,16 @@
 require 'test_helper'
 
 class LocationsControllerTest < ActionController::TestCase
-  setup do
-    @location = locations(:one)
-    @user = users(:one)
-  end
+#   setup do
+#     @location = locations(:one)
+#     @user = users(:one)
+#   end
 
-#  test "should get index" do
-#    get :index, user_id: 1
-#    assert_response :success
-#    assert_not_nil assigns(:locations)
-#  end
+#   test "should get index" do
+#     get :index, user_id: @user.name
+#     assert_response :success
+#     assert_not_nil assigns(:locations)
+#   end
 #
 #   test "should get new" do
 #     get :new, user_id: 1

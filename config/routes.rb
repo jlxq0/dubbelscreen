@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :newschannels
     resources :people
     resources :plexservers
+    resources :dashboards
     match 'trigger', to: 'triggers#index', via: [:get, :post]
   end
 
