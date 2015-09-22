@@ -1,0 +1,32 @@
+= form_for [@user, @dashboard], html: { class: "form-horizontal", role: "form" } do |f|
+  -if @dashboard.errors.any?
+    .alert.alert-danger.alert-dismissable{role: "alert"}
+      %button.close{type: "button", data: {dismiss: "alert"} }
+        %span{aria: {hidden: "true"} } &times;
+        %span.sr-only Close
+      %h4= "#{pluralize(@dashboard.errors.count, "error")} prohibited this dashboard from being saved:"
+
+      %ul
+        - @dashboard.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :name, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :name, class: 'form-control'
+
+  .form-group
+    = f.label :content, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :content, class: 'form-control'
+
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      %button.btn.btn-primary{:type => "submit"}
+        - if f.object.new_record?
+          = icon('save')
+          = "Cretae #{f.object.class.model_name.human}"
+        - else
+          = icon('refresh')
+          = "Update #{f.object.class.model_name.human}"
+      = ilink_to 'arrow-circle-left', 'Cancel & Back', user_dashboards_path(@user), :class => 'btn btn-default'
