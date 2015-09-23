@@ -21,6 +21,24 @@ class Person < ActiveRecord::Base
 
   def set_trigger
     withings_user.subscribe_notification("http://www.dubbelscreen.com/#{self.user.name}/people/#{self.id}/trigger", "#{self.user.name} #{self.id} trigger")
+
+    #USER_ID       = '4456444'
+    #USER_KEY      = 'd7f2295466271ef3b5cd8337f08e5b9228cb3830e65e6de0f1d79bf7f98f'
+    #USER_SECRET   = '07527d0034cd77fbd32001f15c541f6b73ec866936d396beb132c4d53cc87'
+    #CONFIGURATION = {               site: 'https://oauth.withings.com',
+    #                  request_token_path: '/account/request_token',
+    #                   access_token_path: '/account/access_token',
+    #                      authorize_path: '/account/authorize',
+    #                         http_method: :get,
+    #                              scheme: :query_string
+    #                }
+    #
+    #@consumer = OAuth::Consumer.new WITHINGS_OAUTH_CONSUMER_KEY, WITHINGS_OAUTH_CONSUMER_SECRET, CONFIGURATION
+    #@access_token = OAuth::AccessToken.new @consumer, USER_KEY, USER_SECRET
+    #url = ERB::Util.url_encode("http://www.dubbelscreen.com/jlxq0/trigger")
+    #comment = ERB::Util.url_encode("jlxq0 trigger")
+    #response = @access_token.get("https://wbsapi.withings.net/notify?action=subscribe&userid=#{USER_ID}&callbackurl=#{url}&comment=#{comment}")
+    #JSON.parse(response.body)
   end
 
   def remove_trigger
@@ -38,8 +56,8 @@ class Person < ActiveRecord::Base
   protected
 
   def withings_user
-    Withings.consumer_secret = WITHINGS_OAUTH_CONSUMER_SECRET
-    Withings.consumer_key    = WITHINGS_OAUTH_CONSUMER_KEY
+    Withings.consumer_secret = ENV['WITHINGS_OAUTH_CONSUMER_SECRET']
+    Withings.consumer_key    = ENV['WITHINGS_OAUTH_CONSUMER_KEY']
 
     response = Withings::Connection.get_request('/user', withings_key, withings_secret, :action => :getbyuserid, :userid => withings_id)
     user_data = response['users'].detect { |item| item['id'] == withings_id.to_i }
