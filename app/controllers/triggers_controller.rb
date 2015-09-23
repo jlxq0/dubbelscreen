@@ -3,5 +3,6 @@ class TriggersController < ApplicationController
 
   def index
     GetApiDataForUserJob.perform_later(params[:user_name])
+    render :layout => 'blank'
   end
 end

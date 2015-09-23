@@ -4,21 +4,36 @@ class Person < ActiveRecord::Base
   has_many :activitydata
   validates :name, :fullname, presence: true
 
+  after_save :set_trigger
+  before_destroy :remove_trigger
+
   def get_health
-    measurement = withings_connection.measurement_groups.first
+    measurement = withings_user.measurement_groups.first
     update_health measurement if measurement
   end
 
   def get_activity
-    yesterday = withings_connection.get_activities(date: Date.yesterday.strftime('%F'))
+    yesterday = withings_user.get_activities(date: Date.yesterday.strftime('%F'))
     update_activity yesterday if yesterday && yesterday["date"]
-    today = withings_connection.get_activities(date: Date.today.strftime('%F'))
+    today = withings_user.get_activities(date: Date.today.strftime('%F'))
     update_activity today if today && today["date"]
+  end
+
+  def set_trigger
+    withings_user.subscribe_notification("http://www.dubbelscreen.com/#{self.user.name}/people/#{self.id}/trigger", "#{self.user.name} #{self.id} trigger")
+  end
+
+  def remove_trigger
+    withings_user.revoke_notification("http://www.dubbelscreen.com/#{self.user.name}/people/#{self.id}/trigger")
+  end
+
+  def list_triggers
+    withings_user.list_notifications
   end
 
   protected
 
-  def withings_connection
+  def withings_user
     Withings.consumer_secret = WITHINGS_OAUTH_CONSUMER_SECRET
     Withings.consumer_key    = WITHINGS_OAUTH_CONSUMER_KEY
 

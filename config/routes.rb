@@ -7,10 +7,11 @@ Rails.application.routes.draw do
   resources :users, :path => '', param: :name do
     resources :locations
     resources :newschannels
-    resources :people
+    resources :people do
+      match 'trigger', to: 'triggers#index', via: [:get, :post]
+    end
     resources :plexservers
     resources :dashboards
-    match 'trigger', to: 'triggers#index', via: [:get, :post]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
