@@ -20,25 +20,20 @@ class Person < ActiveRecord::Base
   end
 
   def set_trigger
-    withings_user.subscribe_notification("http://www.dubbelscreen.com/#{self.user.name}/people/#{self.id}/trigger", "#{self.user.name} #{self.id} trigger")
-
-    #USER_ID       = '4456444'
-    #USER_KEY      = 'd7f2295466271ef3b5cd8337f08e5b9228cb3830e65e6de0f1d79bf7f98f'
-    #USER_SECRET   = '07527d0034cd77fbd32001f15c541f6b73ec866936d396beb132c4d53cc87'
-    #CONFIGURATION = {               site: 'https://oauth.withings.com',
-    #                  request_token_path: '/account/request_token',
-    #                   access_token_path: '/account/access_token',
-    #                      authorize_path: '/account/authorize',
-    #                         http_method: :get,
-    #                              scheme: :query_string
-    #                }
-    #
-    #@consumer = OAuth::Consumer.new WITHINGS_OAUTH_CONSUMER_KEY, WITHINGS_OAUTH_CONSUMER_SECRET, CONFIGURATION
-    #@access_token = OAuth::AccessToken.new @consumer, USER_KEY, USER_SECRET
-    #url = ERB::Util.url_encode("http://www.dubbelscreen.com/jlxq0/trigger")
-    #comment = ERB::Util.url_encode("jlxq0 trigger")
-    #response = @access_token.get("https://wbsapi.withings.net/notify?action=subscribe&userid=#{USER_ID}&callbackurl=#{url}&comment=#{comment}")
-    #JSON.parse(response.body)
+    #withings_user.subscribe_notification("http://www.dubbelscreen.com/#{self.user.name}/people/#{self.id}/trigger", "#{self.user.name} #{self.id} trigger")
+    CONFIGURATION = {               site: 'https://oauth.withings.com',
+                      request_token_path: '/account/request_token',
+                       access_token_path: '/account/access_token',
+                          authorize_path: '/account/authorize',
+                             http_method: :get,
+                                  scheme: :query_string
+                    }
+    @consumer = OAuth::Consumer.new ENV['WITHINGS_OAUTH_CONSUMER_KEY'], ENV['WITHINGS_OAUTH_CONSUMER_SECRET'], CONFIGURATION
+    @access_token = OAuth::AccessToken.new @consumer, withings_key, withings_secret
+    url = ERB::Util.url_encode("http://www.dubbelscreen.com/#{self.user.name}/people/#{self.id}/trigger")
+    comment = ERB::Util.url_encode("#{self.user.name} trigger")
+    response = @access_token.get("https://wbsapi.withings.net/notify?action=subscribe&userid=#{withings_id}&callbackurl=#{url}&comment=#{comment}")
+    JSON.parse(response.body)
   end
 
   def remove_trigger
