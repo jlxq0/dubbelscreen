@@ -22,7 +22,7 @@ class Person < ActiveRecord::Base
   def set_trigger
     require 'rubygems'
     require 'withings'
-    include Withings
+    #include Withings
     Withings.consumer_secret = '6204efc7e12458f0c26b841d0f27d4d14ee75dfe8c2edd9bb32d864464'
     Withings.consumer_key = '6390edb3b3e3816c82b3b92910fe728268d9869192e0efd5066ee4548900680'
     user = Withings::User.authenticate('4456444', 'd7f2295466271ef3b5cd8337f08e5b9228cb3830e65e6de0f1d79bf7f98f', '07527d0034cd77fbd32001f15c541f6b73ec866936d396beb132c4d53cc87')
