@@ -1,4 +1,6 @@
 class TriggersController < ApplicationController
+  skip_before_filter :verify_authenticity_token, :only => [:index]
+
   def index
     @user = User.where(name: params[:user_name]).first
     if @user
