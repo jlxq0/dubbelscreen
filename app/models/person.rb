@@ -29,9 +29,13 @@ class Person < ActiveRecord::Base
                                   scheme: :query_string
                     }
     @consumer = OAuth::Consumer.new ENV['WITHINGS_OAUTH_CONSUMER_KEY'], ENV['WITHINGS_OAUTH_CONSUMER_SECRET'], configuration
+    logger.error(@consumer)
     @access_token = OAuth::AccessToken.new @consumer, withings_key, withings_secret
+    logger.error(@access_token)
     url = ERB::Util.url_encode("http://www.dubbelscreen.com/#{self.user.name}/people/#{self.id}/trigger")
+    logger.error(url)
     comment = ERB::Util.url_encode("#{self.user.name} trigger")
+    logger.error(comment)
     response = @access_token.get("https://wbsapi.withings.net/notify?action=subscribe&userid=#{withings_id}&callbackurl=#{url}&comment=#{comment}")
     logger.error(JSON.parse(response.body))
   end
