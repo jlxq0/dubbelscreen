@@ -81,3 +81,4 @@ gem 'omniauth-twitter'
 gem 'omniauth-identity'
 
 gem 'pusher'
+gem 'delayed_job_active_record'
