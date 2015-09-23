@@ -21,14 +21,14 @@ class Person < ActiveRecord::Base
 
   def set_trigger
     #withings_user.subscribe_notification("http://www.dubbelscreen.com/#{self.user.name}/people/#{self.id}/trigger", "#{self.user.name} #{self.id} trigger")
-    CONFIGURATION = {               site: 'https://oauth.withings.com',
+    configuration = {               site: 'https://oauth.withings.com',
                       request_token_path: '/account/request_token',
                        access_token_path: '/account/access_token',
                           authorize_path: '/account/authorize',
                              http_method: :get,
                                   scheme: :query_string
                     }
-    @consumer = OAuth::Consumer.new ENV['WITHINGS_OAUTH_CONSUMER_KEY'], ENV['WITHINGS_OAUTH_CONSUMER_SECRET'], CONFIGURATION
+    @consumer = OAuth::Consumer.new ENV['WITHINGS_OAUTH_CONSUMER_KEY'], ENV['WITHINGS_OAUTH_CONSUMER_SECRET'], configuration
     @access_token = OAuth::AccessToken.new @consumer, withings_key, withings_secret
     url = ERB::Util.url_encode("http://www.dubbelscreen.com/#{self.user.name}/people/#{self.id}/trigger")
     comment = ERB::Util.url_encode("#{self.user.name} trigger")
