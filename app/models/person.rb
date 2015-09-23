@@ -40,15 +40,9 @@ class Person < ActiveRecord::Base
     withings_user.revoke_notification("http://www.dubbelscreen.com/#{self.user.name}/people/#{self.id}/trigger")
   end
 
-  def remove_trigger2
-    withings_user.revoke_notification("http://www.dubbelscreen.com/jlxq0/trigger")
-  end
-
   def list_triggers
     withings_user.list_notifications
   end
-
-  protected
 
   def withings_user
     Withings.consumer_secret = ENV['WITHINGS_OAUTH_CONSUMER_SECRET']
