@@ -20,11 +20,11 @@ class Person < ActiveRecord::Base
   end
 
   def set_trigger
-    withings_user.subscribe_notification("http://www.dubbelscreen.com/#{self.user.name}/person/#{self.id}/trigger", "#{self.user.name} #{self.id} trigger")
+    withings_user.subscribe_notification("http://www.dubbelscreen.com/#{self.user.name}/people/#{self.id}/trigger", "#{self.user.name} #{self.id} trigger")
   end
 
   def remove_trigger
-    withings_user.revoke_notification("http://www.dubbelscreen.com/#{self.user.name}/person/#{self.id}/trigger")
+    withings_user.revoke_notification("http://www.dubbelscreen.com/#{self.user.name}/people/#{self.id}/trigger")
   end
 
   def list_triggers
