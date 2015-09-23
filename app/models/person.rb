@@ -33,7 +33,7 @@ class Person < ActiveRecord::Base
     url = ERB::Util.url_encode("http://www.dubbelscreen.com/#{self.user.name}/people/#{self.id}/trigger")
     comment = ERB::Util.url_encode("#{self.user.name} trigger")
     response = @access_token.get("https://wbsapi.withings.net/notify?action=subscribe&userid=#{withings_id}&callbackurl=#{url}&comment=#{comment}")
-    JSON.parse(response.body)
+    logger.error(JSON.parse(response.body))
   end
 
   def remove_trigger
