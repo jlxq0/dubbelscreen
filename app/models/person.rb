@@ -4,7 +4,7 @@ class Person < ActiveRecord::Base
   has_many :activitydata
   validates :name, :fullname, presence: true
 
-  after_save :set_trigger
+  before_save :set_trigger
   before_destroy :remove_trigger
 
   def get_health
