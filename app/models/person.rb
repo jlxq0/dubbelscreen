@@ -30,7 +30,7 @@ class Person < ActiveRecord::Base
                     }
     @consumer = OAuth::Consumer.new ENV['WITHINGS_OAUTH_CONSUMER_KEY'], ENV['WITHINGS_OAUTH_CONSUMER_SECRET'], configuration
     logger.error(@consumer)
-    @access_token = OAuth::AccessToken.new @consumer, withings_key, withings_secret
+    @access_token = OAuth::AccessToken.new @consumer, self.withings_key, self.withings_secret
     logger.error(@access_token)
     url = ERB::Util.url_encode("http://www.dubbelscreen.com/#{self.user.name}/people/#{self.id}/trigger")
     logger.error(url)
