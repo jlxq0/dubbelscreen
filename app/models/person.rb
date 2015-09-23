@@ -4,7 +4,7 @@ class Person < ActiveRecord::Base
   has_many :activitydata
   validates :name, :fullname, presence: true
 
-  before_save :set_trigger
+  #before_save :set_trigger
   before_destroy :remove_trigger
 
   def get_health
@@ -20,14 +20,7 @@ class Person < ActiveRecord::Base
   end
 
   def set_trigger
-    require 'rubygems'
-    require 'withings'
-    #include Withings
-    Withings.consumer_secret = '6204efc7e12458f0c26b841d0f27d4d14ee75dfe8c2edd9bb32d864464'
-    Withings.consumer_key = '6390edb3b3e3816c82b3b92910fe728268d9869192e0efd5066ee4548900680'
-    user = Withings::User.authenticate('4456444', 'd7f2295466271ef3b5cd8337f08e5b9228cb3830e65e6de0f1d79bf7f98f', '07527d0034cd77fbd32001f15c541f6b73ec866936d396beb132c4d53cc87')
-    user.subscribe_notification('http://www.dubbelscreen.com/jlxq0/people/1/trigger', 'test')
-    #withings_user.subscribe_notification("http://www.dubbelscreen.com/#{self.user.name}/people/#{self.id}/trigger", "#{self.user.name} #{self.id} trigger")
+    withings_user.subscribe_notification("http://www.dubbelscreen.com/#{self.user.name}/people/#{self.id}/trigger", "#{self.user.name} #{self.id} trigger")
     #configuration = {               site: 'https://oauth.withings.com',
     #                  request_token_path: '/account/request_token',
     #                   access_token_path: '/account/access_token',
