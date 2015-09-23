@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
 
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use SCSS for stylesheets
@@ -35,6 +36,7 @@ group :development, :test do
   gem 'byebug'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  gem 'dotenv-rails'
 end
 
 gem "codeclimate-test-reporter", group: :test, require: nil
@@ -47,6 +49,8 @@ group :development do
   gem 'spring'
   gem 'awesome_print'
   gem 'erb2haml'
+  gem 'quiet_assets'
+  gem 'better_errors'
 end
 
 group :production do
@@ -76,4 +80,4 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-identity'
 
-gem 'pusher_rails'
+gem 'pusher'

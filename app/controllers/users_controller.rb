@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   def show
-    #@user = User.find_by name: params['name']
     @user = current_user
     @people = Person.where(user_id: current_user.id)
     @weight = '%.1f' % Weightdatum.first.withings_weight

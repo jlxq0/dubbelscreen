@@ -8,7 +8,7 @@ class TriggersController < ApplicationController
 
       Person.where(user_id: @user.id).each do |p|
         p.get_activity
-        p.get_weight
+        p.get_health
       end
 
       Newschannel.where(user_id: @user.id).each do |n|

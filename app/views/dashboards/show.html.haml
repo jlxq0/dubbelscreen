@@ -1,11 +1,34 @@
-.page-header
-  = ilink_to 'arrow-circle-left', 'Back', user_dashboards_path(@user), class: 'btn btn-default'
-  = ilink_to 'edit', 'Edit', edit_user_dashboard_path(@user, @dashboard), class: 'btn btn-primary'
+.row
+  .col-md-12
+    %p{ style: "margin-left: 0.6em; margin-bottom: -0.15em; font-size:8em" }
+      = Time.now.in_time_zone("Europe/Berlin").strftime('%k:%M')
+    %p{ style: "margin-left: 3.4em; margin-bottom: 1em; font-size:1.4em" }
+      = Time.now.in_time_zone("Europe/Berlin").strftime('%A, %B %d, %Y')
 
-  %h1 Show dashboard
+- @locations.each do |location|
+  .row{ style: "margin-top: 1.5em" }
+    .col-md-2{ style: "text-align: right; margin-top: 0em; font-size:4.9em" }
+      %i{:class => "wi wi-yahoo-#{location.weatherdata.last.icon}"}
+    .col-md-10
+      %h3{ style: "margin-top: 0em" }
+        = location.name
+      = location.weatherdata.last.condition
+      %br
+      High: #{location.weatherdata.last.high}°C
+      Low: #{location.weatherdata.last.low}°C
+      %br
+      Sunset: #{location.weatherdata.last.sunset.in_time_zone("Europe/Berlin").strftime('%k:%M')}
 
-%dl.dl-horizontal
-  %dt Name
-  %dd= @dashboard.name
-  %dt Content
-  %dd= @dashboard.content
+- @people.each do |person|
+  .row{ style: "margin-top: 1.5em" }
+    .col-md-2{ style: "text-align: right; margin-top: 0em; font-size:5.8em" }
+      = icon('bar-chart')
+    .col-md-10
+      %h3{ style: "margin-top: 0em" } #{person.name}
+      #{'%.1f' % person.weightdata.order('withings_taken_at DESC').first.withings_weight} kg
+      %br
+      - if person.activitydata.first
+        #{person.activitydata.order('withings_taken_at DESC').first.withings_steps} steps
+      %br
+      - if person.activitydata.first
+        #{'%.0f' % person.activitydata.order('withings_taken_at DESC').first.withings_totalcalories} calories

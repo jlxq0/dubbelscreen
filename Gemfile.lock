@@ -60,6 +60,10 @@ GEM
     bcrypt (3.1.10)
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
+    better_errors (2.1.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-generators (3.3.4)
@@ -72,6 +76,7 @@ GEM
     choc_mool (0.0.1)
     codeclimate-test-reporter (0.4.8)
       simplecov (>= 0.7.1, < 1.0.0)
+    coderay (1.1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     coffee-rails (4.1.0)
@@ -93,6 +98,10 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     docile (1.1.5)
+    dotenv (2.0.2)
+    dotenv-rails (2.0.2)
+      dotenv (= 2.0.2)
+      railties (~> 4.0)
     equalizer (0.0.11)
     erb2haml (0.1.5)
       html2haml
@@ -166,8 +175,8 @@ GEM
     pusher (0.11.3)
       multi_json (~> 1.0)
       signature (~> 0.1.6)
-    pusher_rails (1.0.1)
-      pusher (~> 0.11.3)
+    quiet_assets (1.1.0)
+      railties (>= 3.1, < 5.0)
     rack (1.6.4)
     rack-pjax (0.8.0)
       nokogiri (~> 1.5)
@@ -291,12 +300,14 @@ DEPENDENCIES
   awesome_print
   barometer
   barometer-yahoo
+  better_errors
   bootstrap-generators
   bootstrap-sass
   byebug
   codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
   devise
+  dotenv-rails
   erb2haml
   font-awesome-sass
   haml
@@ -308,7 +319,8 @@ DEPENDENCIES
   omniauth-twitter
   pg
   plex-ruby
-  pusher_rails
+  pusher
+  quiet_assets
   rails (= 4.2.4)
   rails_12factor
   rails_admin

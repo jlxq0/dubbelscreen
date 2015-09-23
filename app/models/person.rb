@@ -4,9 +4,9 @@ class Person < ActiveRecord::Base
   has_many :activitydata
   validates :name, :fullname, presence: true
 
-  def get_weight
+  def get_health
     measurement = withings_connection.measurement_groups.first
-    update_weight measurement if measurement
+    update_health measurement if measurement
   end
 
   def get_activity
@@ -27,7 +27,7 @@ class Person < ActiveRecord::Base
     Withings::User.new(user_data.merge({:oauth_token => withings_key, :oauth_token_secret => withings_secret}))
   end
 
-  def update_weight measurement
+  def update_health measurement
     weight = Weightdatum.find_or_initialize_by(person_id: self.id, withings_taken_at: measurement.taken_at)
     weight.update(
       withings_taken_at:                 measurement.taken_at,
