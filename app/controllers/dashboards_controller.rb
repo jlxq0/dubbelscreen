@@ -5,7 +5,7 @@ class DashboardsController < ApplicationController
   # GET /dashboards.json
   def index
     @user = current_user
-    @dashboards = Dashboard.all
+    @dashboards = Dashboard.where user_id: current_user.id
   end
 
   # GET /dashboards/1
