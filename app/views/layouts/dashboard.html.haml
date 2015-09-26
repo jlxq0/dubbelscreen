@@ -37,6 +37,7 @@
         });
 
         function dom_notify(data) {
+          $('#clock').effect("highlight", {}, 3000);
           $.each(data.people, function( personname, person ) {
             $('#'+personname+'_weight').text(person.healthdata[0].withings_weight.toFixed(1));
             if(!$.isEmptyObject(person.activitydata)) {
