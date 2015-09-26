@@ -1,6 +1,6 @@
 class Plexserver < ActiveRecord::Base
   belongs_to :user
-  has_many :plexmedia
+  has_many :plexmedia, dependent: :destroy
   validates :name, :url, :port, :token, presence: true
 
   def get_media

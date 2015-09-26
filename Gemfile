@@ -73,6 +73,7 @@ gem 'angularjs-rails'
 gem 'haml'
 gem 'font-awesome-sass'
 gem 'newrelic_rpm'
+gem 'momentjs-rails'
 
 # OAuth Stuff
 gem 'devise'

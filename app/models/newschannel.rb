@@ -1,6 +1,6 @@
 class Newschannel < ActiveRecord::Base
   belongs_to :user
-  has_many :news
+  has_many :news, dependent: :destroy
 
   def get_news
     rss = RSS::Parser.parse(feedurl, false)

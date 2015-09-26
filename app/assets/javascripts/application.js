@@ -17,4 +17,5 @@
 //= require angular
 //= require angular-animate
 //= require bootstrap
+//= require moment
 //= require_tree .

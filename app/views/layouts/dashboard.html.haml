@@ -33,16 +33,31 @@
         var channel = pusher.subscribe('private-#{current_user.name}');
 
         channel.bind('new_message', function(data) {
-          dom_notify(data.message);
+          dom_notify(data);
         });
 
-        function dom_notify(msg) {
-          $('#notify').text(msg);
-          console.log(msg);
+        function dom_notify(data) {
+          $.each(data.people, function( personname, person ) {
+            $('#'+personname+'_weight').text(person.healthdata[0].withings_weight.toFixed(1));
+            if(!$.isEmptyObject(person.activitydata)) {
+              $('#'+personname+'_steps').text(person.activitydata[0].withings_steps);
+              $('#'+personname+'_calories').text(person.activitydata[0].withings_calories);
+            }
+          });
+          $.each(data.locations, function( locationname, loc ) {
+            console.log( locationname + ": " + loc );
+            $('#'+locationname+'_condition').text(loc[0].condition);
+            $('#'+locationname+'_high').text(loc[0].high);
+            $('#'+locationname+'_low').text(loc[0].low);
+            $('#'+locationname+'_sun').text(moment(loc[0].sunset).format('H:mm'));
+            $('#'+locationname+'_icon').removeClass (function (index, css) {
+              return (css.match (/\bwi-yahoo-\S+/g) || []).join(' ');
+            });
+            $('#'+locationname+'_icon').addClass('wi-yahoo-'+loc[0].icon);
+            console.log(loc[0])
+          });
         };
       });
 
   %body
-    #notify
-      Noch gar nix
     = yield

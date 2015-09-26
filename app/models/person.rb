@@ -1,7 +1,7 @@
 class Person < ActiveRecord::Base
   belongs_to :user
-  has_many :weightdata
-  has_many :activitydata
+  has_many :weightdata, dependent: :destroy
+  has_many :activitydata, dependent: :destroy
   validates :name, :fullname, presence: true
 
   before_save :set_trigger

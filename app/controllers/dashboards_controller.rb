@@ -11,11 +11,7 @@ class DashboardsController < ApplicationController
   # GET /dashboards/1
   # GET /dashboards/1.json
   def show
-    @user         = current_user
-    @people       = Person.where(user_id: current_user.id)
-    @locations    = Location.where(user_id: current_user.id)
-    @plexservers  = Plexserver.where(user_id: current_user.id)
-    @newschannels = Newschannel.where(user_id: current_user.id)
+    @data = @dashboard.data current_user
     render :layout => 'dashboard'
   end
 

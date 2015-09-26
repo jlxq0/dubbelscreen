@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
-  has_many :locations
-  has_many :newschannels
-  has_many :people
-  has_many :plexservers
+  has_many :locations, dependent: :destroy
+  has_many :newschannels, dependent: :destroy
+  has_many :people, dependent: :destroy
+  has_many :plexservers, dependent: :destroy
+  has_many :dashboards, dependent: :destroy
   devise :database_authenticatable, :rememberable, :trackable, :omniauthable
 
   def to_param

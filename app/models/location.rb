@@ -1,6 +1,6 @@
 class Location < ActiveRecord::Base
   belongs_to :user
-  has_many :weatherdata
+  has_many :weatherdata, dependent: :destroy
 
   def get_weather
     coordinates = "#{lat.to_f},#{long.to_f}"
