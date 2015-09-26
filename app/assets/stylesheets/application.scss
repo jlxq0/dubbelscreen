@@ -19,6 +19,8 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+html, body {margin: 0; height: 100%; overflow: hidden}
+
 #dashboard {
   background-color: black;
   color: white;
