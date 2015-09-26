@@ -1,8 +1,8 @@
 .row
   .col-md-12
-    %p{ style: "margin-left: 0.6em; margin-bottom: -0.15em; font-size:8em" }
+    %p{ style: "margin-left: 0.6em; margin-bottom: -0.15em; font-size:8em", id: "clock"}
       = Time.now.in_time_zone("Europe/Berlin").strftime('%k:%M')
-    %p{ style: "margin-left: 3.4em; margin-bottom: 1em; font-size:1.4em" }
+    %p{ style: "margin-left: 3.4em; margin-bottom: 1em; font-size:1.4em", id: "date"}
       = Time.now.in_time_zone("Europe/Berlin").strftime('%A, %B %d, %Y')
 
 - @data[:locations].each do |location|

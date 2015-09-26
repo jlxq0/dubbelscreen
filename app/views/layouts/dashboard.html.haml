@@ -57,6 +57,12 @@
             console.log(loc[0])
           });
         };
+
+        function clockupdate() {
+          $('#clock').html(moment().format('HH:mm'));
+          $('#date').html(moment().format('dddd, MMMM D, YYYY'));
+        }
+        setInterval(clockupdate, 1000);
       });
 
   %body
