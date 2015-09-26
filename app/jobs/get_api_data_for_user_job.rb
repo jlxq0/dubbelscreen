@@ -1,7 +1,7 @@
 class GetApiDataForUserJob < ActiveJob::Base
   queue_as :default
 
-  def perform_later(user_name)
+  def perform(user_name)
     @user = User.where(name: user_name).first
 
     if @user
