@@ -27,16 +27,18 @@
           = link_to "dubbelscreen", "/", class: "navbar-brand"
         .collapse.navbar-collapse#navbar
           %ul.nav.navbar-nav
-            %li
-              = link_to("Test", "/test")
-            %li
-              = link_to("Login w/ Twitter", "/users/auth/twitter")
-            %li
-              = link_to("Login w/ GitHub", "/users/auth/github")
-            %li
-              = link_to("Login w/ Facebook", "/users/auth/facebook")
-            %li
-              = link_to("Logout", destroy_user_session_path, :method => :delete)
+            - if user_signed_in?
+              %li
+                = link_to("Test", "/test")
+              %li
+                = link_to("Logout", destroy_user_session_path, :method => :delete)
+            - else
+              %li
+                = link_to("Login w/ Twitter", "/users/auth/twitter")
+              %li
+                = link_to("Login w/ GitHub", "/users/auth/github")
+              %li
+                = link_to("Login w/ Facebook", "/users/auth/facebook")
     .container
       - flash.each do |name, msg|
         = content_tag :div, class: "alert alert-#{name == "error" ? "danger" : "success" } alert-dismissable", role: "alert" do
