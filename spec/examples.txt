@@ -1,0 +1,6 @@
+example_id                                | status | run_time        |
+----------------------------------------- | ------ | --------------- |
+./spec/models/datasource_spec.rb[1:1]     | passed | 0.37893 seconds |
+./spec/models/datasource_spec.rb[1:2]     | passed | 0.00244 seconds |
+./spec/models/datasourcetype_spec.rb[1:1] | passed | 0.00459 seconds |
+./spec/models/datasourcetype_spec.rb[1:2] | passed | 0.00238 seconds |
