@@ -28,7 +28,7 @@ class DatasourcesController < ApplicationController
 
     respond_to do |format|
       if @datasource.save
-        format.html { redirect_to @datasource, notice: 'Datasource was successfully created.' }
+        format.html { redirect_to @datasource, notice: "Datasource was successfully created." }
         format.json { render :show, status: :created, location: @datasource }
       else
         format.html { render :new }
@@ -42,7 +42,8 @@ class DatasourcesController < ApplicationController
   def update
     respond_to do |format|
       if @datasource.update(datasource_params)
-        format.html { redirect_to @datasource, notice: 'Datasource was successfully updated.' }
+        format.html { redirect_to @datasource, notice: "Datasource was successfully updated."
+         }
         format.json { render :show, status: :ok, location: @datasource }
       else
         format.html { render :edit }
@@ -56,19 +57,20 @@ class DatasourcesController < ApplicationController
   def destroy
     @datasource.destroy
     respond_to do |format|
-      format.html { redirect_to datasources_url, notice: 'Datasource was successfully destroyed.' }
+      format.html { redirect_to datasources_url, notice: "Datasource was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_datasource
-      @datasource = Datasource.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def datasource_params
-      params.require(:datasource).permit(:name, :datasourcetype_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_datasource
+    @datasource = Datasource.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def datasource_params
+    params.require(:datasource).permit(:name, :datasourcetype_id)
+  end
 end
