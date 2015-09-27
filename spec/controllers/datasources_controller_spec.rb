@@ -19,7 +19,6 @@ require "rails_helper"
 # that an instance is receiving a specific message.
 
 RSpec.describe DatasourcesController, type: :controller do
-
   # This should return the minimal set of attributes required to create a valid
   # Datasource. As you add validations to Datasource, be sure to
   # adjust the attributes here as well.
@@ -43,7 +42,7 @@ RSpec.describe DatasourcesController, type: :controller do
   describe "GET #show" do
     it "assigns the requested datasource as @datasource" do
       datasource = Datasource.create! valid_attributes
-      get :show, { :id => datasource.to_param }, valid_session
+      get :show, { id: datasource.to_param }, valid_session
       expect(assigns(:datasource)).to eq(datasource)
     end
   end
@@ -104,20 +103,26 @@ RSpec.describe DatasourcesController, type: :controller do
 
       it "updates the requested datasource" do
         datasource = Datasource.create! valid_attributes
-        put :update, { id: datasource.to_param, datasource: new_attributes }, valid_session
+        put :update,
+          { id: datasource.to_param, datasource: new_attributes },
+          valid_session
         datasource.reload
         expect(controller.notice).to eq("Datasource was successfully updated.")
       end
 
       it "assigns the requested datasource as @datasource" do
         datasource = Datasource.create! valid_attributes
-        put :update, { id: datasource.to_param, datasource: valid_attributes }, valid_session
+        put :update,
+          { id: datasource.to_param, datasource: valid_attributes },
+          valid_session
         expect(assigns(:datasource)).to eq(datasource)
       end
 
       it "redirects to the datasource" do
         datasource = Datasource.create! valid_attributes
-        put :update, { id: datasource.to_param, datasource: valid_attributes}, valid_session
+        put :update,
+          { id: datasource.to_param, datasource: valid_attributes},
+          valid_session
         expect(response).to redirect_to(datasource)
       end
     end
@@ -125,13 +130,17 @@ RSpec.describe DatasourcesController, type: :controller do
     context "with invalid params" do
       it "assigns the datasource as @datasource" do
         datasource = Datasource.create! valid_attributes
-        put :update, { id: datasource.to_param, datasource: invalid_attributes }, valid_session
+        put :update,
+          { id: datasource.to_param, datasource: invalid_attributes },
+          valid_session
         expect(assigns(:datasource)).to eq(datasource)
       end
 
       it "re-renders the 'edit' template" do
         datasource = Datasource.create! valid_attributes
-        put :update, { id: datasource.to_param, datasource: invalid_attributes }, valid_session
+        put :update,
+          { id: datasource.to_param, datasource: invalid_attributes },
+          valid_session
         expect(response).to render_template("edit")
       end
     end
@@ -151,5 +160,4 @@ RSpec.describe DatasourcesController, type: :controller do
       expect(response).to redirect_to(datasources_path)
     end
   end
-
 end
