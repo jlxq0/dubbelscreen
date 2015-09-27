@@ -41,13 +41,13 @@ div {
   color: #008000;
 }
 
-.field_with_errors {
+.field-with-errors {
   padding: 2px;
   background-color: #ff0000;
   display: table;
 }
 
-#error_explanation {
+#error-explanation {
   width: 450px;
   border: 2px solid #ff0000;
   padding: 7px;
@@ -56,14 +56,14 @@ div {
   background-color: #f0f0f0;
 
   h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: -7px;
-    margin-bottom: 0px;
     background-color: #c00;
     color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    margin: -7px;
+    margin-bottom: 0px;
+    padding: 5px 5px 5px 15px;
+    text-align: left;
   }
 
   ul li {
