@@ -8,3 +8,5 @@ ruby:
   config_file: .ruby-style.yml
 haml:
   enabled: true
+haml:
+  config_file: .haml-style.yml
