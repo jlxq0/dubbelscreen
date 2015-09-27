@@ -37,6 +37,13 @@ gem "haml"
 gem "haml-rails"
 gem "bootstrap-sass"
 
+# OAuth Stuff
+gem "devise"
+gem "omniauth"
+gem "omniauth-twitter"
+gem "omniauth-github"
+gem "omniauth-facebook"
+
 group :development, :test do
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
   gem "byebug"
@@ -64,5 +71,6 @@ group :development do
   gem "spring"
   gem "spring-commands-rspec"
   gem "html2haml"
+  gem "dotenv-rails"
 end
 

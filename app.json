@@ -1,0 +1,54 @@
+{
+  "name": "dubbelscreen staging",
+  "scripts": {},
+  "env": {
+    "FACEBOOK_KEY": {
+      "required": true
+    },
+    "FACEBOOK_SECRET": {
+      "required": true
+    },
+    "GITHUB_KEY": {
+      "required": true
+    },
+    "GITHUB_SECRET": {
+      "required": true
+    },
+    "LANG": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_ENV": {
+      "required": true
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "required": true
+    },
+    "TWITTER_KEY": {
+      "required": true
+    },
+    "TWITTER_SECRET": {
+      "required": true
+    },
+    "WITHINGS_OAUTH_CONSUMER_KEY": {
+      "required": true
+    },
+    "WITHINGS_OAUTH_CONSUMER_SECRET": {
+      "required": true
+    }
+  },
+  "addons": [
+    "newrelic",
+    "papertrail",
+    "heroku-postgresql",
+    "pusher",
+    "scheduler",
+    "semaphore",
+    "sendgrid"
+  ]
+}
