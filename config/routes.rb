@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, :controllers => { omniauth_callbacks: "omniauth_callbacks" }
   mount RailsAdmin::Engine => "/admin", as: "rails_admin"
   resources :datasources
   # The priority is based upon order of creation: first created -> highest priority.
@@ -6,6 +7,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root "datasources#index"
+
+  match "/users/:id/finish_signup" => "users#finish_signup", via: [:get, :patch], as: :finish_signup
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
