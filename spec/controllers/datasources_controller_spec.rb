@@ -104,8 +104,8 @@ RSpec.describe DatasourcesController, type: :controller do
       it "updates the requested datasource" do
         datasource = Datasource.create! valid_attributes
         put :update,
-          { id: datasource.to_param, datasource: new_attributes },
-          valid_session
+            { id: datasource.to_param, datasource: new_attributes },
+            valid_session
         datasource.reload
         expect(controller.notice).to eq("Datasource was successfully updated.")
       end
@@ -113,16 +113,16 @@ RSpec.describe DatasourcesController, type: :controller do
       it "assigns the requested datasource as @datasource" do
         datasource = Datasource.create! valid_attributes
         put :update,
-          { id: datasource.to_param, datasource: valid_attributes },
-          valid_session
+            { id: datasource.to_param, datasource: valid_attributes },
+            valid_session
         expect(assigns(:datasource)).to eq(datasource)
       end
 
       it "redirects to the datasource" do
         datasource = Datasource.create! valid_attributes
         put :update,
-          { id: datasource.to_param, datasource: valid_attributes},
-          valid_session
+            { id: datasource.to_param, datasource: valid_attributes},
+            valid_session
         expect(response).to redirect_to(datasource)
       end
     end
@@ -131,16 +131,16 @@ RSpec.describe DatasourcesController, type: :controller do
       it "assigns the datasource as @datasource" do
         datasource = Datasource.create! valid_attributes
         put :update,
-          { id: datasource.to_param, datasource: invalid_attributes },
-          valid_session
+            { id: datasource.to_param, datasource: invalid_attributes },
+            valid_session
         expect(assigns(:datasource)).to eq(datasource)
       end
 
       it "re-renders the 'edit' template" do
         datasource = Datasource.create! valid_attributes
         put :update,
-          { id: datasource.to_param, datasource: invalid_attributes },
-          valid_session
+            { id: datasource.to_param, datasource: invalid_attributes },
+            valid_session
         expect(response).to render_template("edit")
       end
     end
