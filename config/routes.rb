@@ -1,19 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
-  root 'static_pages#home'
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  post 'pusher/auth'
-
-  resources :users, :path => '', param: :name do
-    resources :locations
-    resources :newschannels
-    resources :people do
-      match 'trigger', to: 'triggers#index', via: [:get, :post]
-    end
-    resources :plexservers
-    resources :dashboards
-  end
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
