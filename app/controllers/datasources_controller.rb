@@ -42,8 +42,7 @@ class DatasourcesController < ApplicationController
   def update
     respond_to do |format|
       if @datasource.update(datasource_params)
-        format.html { redirect_to @datasource, notice: "Datasource was successfully updated."
-         }
+        format.html { redirect_to @datasource, notice: "Datasource was successfully updated." }
         format.json { render :show, status: :ok, location: @datasource }
       else
         format.html { render :edit }
