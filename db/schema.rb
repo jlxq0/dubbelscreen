@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150927120503) do
+ActiveRecord::Schema.define(version: 20150927121402) do
 
   create_table "datasources", force: :cascade do |t|
     t.string   "name"
-    t.integer  "type_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "datasourcetype_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
-  add_index "datasources", ["type_id"], name: "index_datasources_on_type_id"
+  add_index "datasources", ["datasourcetype_id"], name: "index_datasources_on_datasourcetype_id"
 
   create_table "datasourcetypes", force: :cascade do |t|
     t.string   "name"
