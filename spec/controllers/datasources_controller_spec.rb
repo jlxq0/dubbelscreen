@@ -121,7 +121,7 @@ RSpec.describe DatasourcesController, type: :controller do
       it "redirects to the datasource" do
         datasource = Datasource.create! valid_attributes
         put :update,
-            { id: datasource.to_param, datasource: valid_attributes},
+            { id: datasource.to_param, datasource: valid_attributes },
             valid_session
         expect(response).to redirect_to(datasource)
       end
