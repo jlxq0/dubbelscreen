@@ -1,0 +1,10 @@
+scss:
+  enabled: true
+scss:
+  config_file: .scss-style.yml
+ruby:
+  enabled: false
+ruby:
+  config_file: .ruby-style.yml
+haml:
+  enabled: true
