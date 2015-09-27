@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @datasource.name
+%p
+  %strong Datasourcetype:
+  = @datasource.datasourcetype
+= link_to 'Edit', edit_datasource_path(@datasource)
+|
+= link_to 'Back', datasources_path

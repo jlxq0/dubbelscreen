@@ -1,0 +1,18 @@
+%p#notice= notice
+%h1 Listing Datasources
+%table
+  %thead
+    %tr
+      %th Name
+      %th Datasourcetype
+      %th{:colspan => "3"}
+  %tbody
+    - @datasources.each do |datasource|
+      %tr
+        %td= datasource.name
+        %td= datasource.datasourcetype
+        %td= link_to 'Show', datasource
+        %td= link_to 'Edit', edit_datasource_path(datasource)
+        %td= link_to 'Destroy', datasource, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Datasource', new_datasource_path
