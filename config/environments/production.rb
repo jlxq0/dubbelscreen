@@ -76,8 +76,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  config.app_domain = "dubbelscreen-pr-13.herokuapp.com"
-  config.action_mailer.default_url_options = { host: "dubbelscreen-pr-13.herokuapp.com", port: 80 }
+  config.app_domain = "staging.dubbelscreen.com"
+  config.action_mailer.default_url_options = { host: "staging.dubbelscreen.com", port: 80 }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default_url_options = { host: config.app_domain }
