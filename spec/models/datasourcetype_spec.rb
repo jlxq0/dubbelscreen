@@ -1,7 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Datasourcetype, type: :model do
-  it 'has a valid factory' do
+  it "has a valid factory" do
     expect(build(:datasourcetype)).to be_valid
   end
   it "is invalid without a name" do
