@@ -35,6 +35,8 @@
               = link_to("Login w/ GitHub", "/users/auth/github")
             %li
               = link_to("Login w/ Facebook", "/users/auth/facebook")
+            %li
+              = link_to("Logout", destroy_user_session_path, :method => :delete)
     .container
       - flash.each do |name, msg|
         = content_tag :div, class: "alert alert-#{name == "error" ? "danger" : "success" } alert-dismissable", role: "alert" do
