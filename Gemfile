@@ -76,6 +76,9 @@ gem 'font-awesome-sass'
 gem 'newrelic_rpm'
 gem 'momentjs-rails'
 
+gem "lograge"
+gem "quiet_assets"
+
 # OAuth Stuff
 gem 'devise'
 gem 'omniauth'
