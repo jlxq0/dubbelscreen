@@ -12,9 +12,13 @@
  *
  */
 
-@import "bootstrap-sprockets";
+@import "variables";
 @import "bootstrap";
 
 body {
-  padding-top: $navbar-height + 10px;
+  padding-top: 0px;
+}
+
+span.logo {
+  font-weight: 900;
 }

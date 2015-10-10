@@ -33,7 +33,11 @@ gem "sdoc", "~> 0.4.0", group: :doc
 gem "rails_admin"
 gem "haml"
 gem "haml-rails"
-gem "bootstrap-sass"
+gem "bootstrap", git: "https://github.com/twbs/bootstrap-rubygem"
+source "https://rails-assets.org" do
+  gem "rails-assets-tether", ">= 1.1.0"
+end
+gem "quiet_assets"
 
 # OAuth Stuff
 gem "devise"
@@ -46,6 +50,7 @@ group :production do
   gem "pg"
   gem "thin"
   gem "rails_12factor"
+  gem "lograge"
 end
 
 group :development, :test do
@@ -55,7 +60,6 @@ group :development, :test do
   gem "factory_girl_rails"
   gem "better_errors"
   gem "binding_of_caller"
-  gem "quiet_assets"
   # Use sqlite3 as the database for Active Record
   gem "sqlite3"
 end
